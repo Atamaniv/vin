@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to Symfony!</title>
+    </head>
+    <body style="margin-left: 150px;">
+        <h1>VIN: {{vin}}</h1>
+        <p>Error: <b> 
+            {% if error != [] %}
+                {% for key, value in error %}
+                <div style="margin-left: 20px;">
+                    <p>
+                        <span>
+                        {{ key+1 }}
+                        </span>
+                        <span>
+                        {{ error[key] }}
+                        </span>
+                    </p>
+                </div>
+                {% endfor %}     
+            {% else %}
+                Not found    
+            {% endif %}
+        </b> </p>
+        <p>
+           <span>WMI — (World Manufacturers Identification): <b> {{wmi}} </b> </span>
+        </p>
+        <p>
+           <span>VDS — (Vehicle Description Section): <b> {{vds}} </b> </span>
+        </p>
+        <p>
+           <span>VIS — (Vehicle Identification Section): <b> {{vis}} </b> </span>
+        </p>
+        <p>
+           <span>Model year is  <b> {{model_year}} </b> </span>
+        </p>
+        <p>
+           <span>Serial number is  <b> {{serial_number}} </b> </span>
+        </p>
+        <p>
+           <span>Assembly plant is  <b> {{assembly_plant}} </b> </span>
+        </p>  
+        </br>
+        <p>
+           <span>Manufacturer is  <b>  </b> </span>
+        </p>  
+        <p>
+           <span>Year is  <b>  </b> </span>
+        </p> 
+        <p>
+           <span>Region is <b> {{region}} </b> </span>
+        </p>    
+         <p>
+           <span>Country is <b> {{country}} </b> </span>
+        </p>   
+        <p>
+           <span>VIN string is<b> {{vin}} </b> </span>
+        </p>      
+        <p>
+           <span>Make is <b>  </b> </span>
+        </p>                    
+        <p>
+           <span>Model is  <b>  </b> </span>
+        </p>                    
+        <p>
+           <span>Type is  <b>  </b> </span>
+        </p>                    
+        <p>
+           <span>Randomly Generated VIN is <b>  </b> </span>
+        </p>                    
+    </body>
+</html>
