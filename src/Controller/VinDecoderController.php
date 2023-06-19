@@ -25,7 +25,7 @@ class VinDecoderController extends AbstractController
             'assembly_plant'=> $vin->assembly_plant(),
             'region'=> $vin->region(), 
             'country'=> $vin->country(), 
-
+            'years'=> $vin->model_year()
         ]);      
     }
 }

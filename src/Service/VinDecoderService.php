@@ -8,6 +8,7 @@ class VinDecoderService {
     private $vin;
     private $error = Array();
     private $Regions;
+    private $Years;
     private $Countries;
 
     function __construct($vin) {
@@ -16,6 +17,7 @@ class VinDecoderService {
         $filter = new FilterService();
         $this->Regions = $filter->Regions;
         $this->Countries = $filter->Countries;
+        $this->Years =$filter->Years;
 
         if (empty($this->vin)) {
             array_push($this->error, "WIN is Empty!");
@@ -52,10 +54,22 @@ class VinDecoderService {
     }
 
     public function model_year(){
-        if ($this->error==[])
-          return substr($this->vin,9,1);
-        else 
-          return "-";
+      $res = '';
+      
+      if ($this->error==[]){
+        for ($row=0;$row<count($this->Years);$row++) {
+          if ($this->Years[$row][0]==substr($this->vin,9,1)) {
+            for ($i=1;$i<3;$i++) {
+              if ($this->Years[$row][$i]<date("Y")) {
+                $res = $res.$this->Years[$row][$i].' ';
+              }
+            }            
+          }   
+        }
+        return $res;
+      }
+      else 
+        return "-";
     }
 
     public function serial_number(){
